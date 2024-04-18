@@ -1,0 +1,40 @@
+.weather-container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+  
+  .weather-module {
+    margin-bottom: 20px;
+  }
+  .login-status {
+    position: relative;
+    cursor: pointer;
+    /* 其他样式保持不变 */
+  }
+  
+  /* 其他样式参照登录界面示例，进行相应更改 */
+  .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    line-height: 31px;
+    color: white;
+    text-align: center;
+  }
+  
+  .login-status {
+    float: right;
+    line-height: 64px;
+    color: white;
+  }
+  
+  .layout {
+    min-height: 100vh;
+  }
+  
+  nz-header {
+    background: #1890ff;
+    color: white;
+  } 

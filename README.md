@@ -1,27 +1,27 @@
-# Weather0412
+## ToDoList
+### 近期目标
+1.实现登录功能（实现）
+    a.实现右上角显示用户名（实现）
+2.实现经纬度查询功能（待实现）
+3.实现天气查询功能（待实现）
+4.实现添加/显示收藏功能（待实现）
+5.加入NG-Zorro UI库（待实现）
+    a.输入框
+    b.按钮
+    c.卡片（实现了收藏列表）
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+### 2024/04/18
+    实现了登录、显示用户名
+### 2024/04/19
+    1.待实现NG-Zorro全覆盖
+    2.实现经纬度功能服务注入
+    3.实现天气查询服务注入
 
-## Development server
+### 远期目标
+    1.设计Auth服务进行鉴权
+    2.设计管理员后台
+    3.设计BI大屏（bushi，这也太难了吧）
+    4.代码开源
+    5.录制实战视频进行知识输出（输入=>处理=>输出）
+    6.暂时没了
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

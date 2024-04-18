@@ -1,0 +1,25 @@
+.logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    line-height: 31px;
+    color: white;
+    text-align: center;
+  }
+  
+  .login-status {
+    float: right;
+    line-height: 64px;
+    color: white;
+  }
+  
+  .layout {
+    min-height: 100vh;
+  }
+  
+  nz-header {
+    background: #1890ff;
+    color: white;
+  } 

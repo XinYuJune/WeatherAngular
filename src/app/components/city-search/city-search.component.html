@@ -1,0 +1,44 @@
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo">天气系统</div>
+    <div 
+      nz-popover 
+      nzPopoverTitle="我的收藏" 
+      [nzPopoverContent]="favoritesTemplate" 
+      nzTrigger="hover" 
+      class="login-status">
+      {{ userId ? userName: '未登录' }} <!-- 这里需要实现获取用户名称的逻辑 -->
+    </div>
+  </nz-header>
+  <nz-content>
+    <div class="weather-search-container">
+      <div class="coordinates-search-module">
+        <h2>经纬度查询</h2>
+        <input nz-input placeholder="请输入城市名称" [(ngModel)]="cityName" />
+        <button nz-button (click)="getWeatherForCity(cityName)">查询</button>
+      </div>
+      <div class="weather-results-module" *ngIf="weather">
+        <h2>天气查询结果</h2>
+        <nz-card>
+          <p>城市: {{ cityName }}</p>
+          <p>天气状况: {{ weather?.description }}</p>
+          <!-- 可以在这里添加更多的天气信息显示 -->
+        </nz-card>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>
+
+<ng-template #favoritesTemplate>
+  <ul *ngIf="favoriteCities?.length; else noFavorites">
+    <li *ngFor="let city of favoriteCities">{{ city }}</li>
+  </ul>
+  <ng-template #noFavorites>
+    暂无收藏城市
+  </ng-template>
+</ng-template>
+
+<!-- 示例的错误消息容器 -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>

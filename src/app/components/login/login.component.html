@@ -1,0 +1,15 @@
+  <nz-layout>
+    <nz-header>
+      <div class="logo">天气查询系统</div>
+      <div class="login-status">未登录</div>
+    </nz-header>
+    <nz-content>
+      <form (ngSubmit)="login()">
+        <input type="text" [(ngModel)]="userId" name="userId" placeholder="请输入用户ID" />
+        <button type="submit">登录</button>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+    </nz-content>
+  <nz-layout>
