@@ -6,10 +6,10 @@
     <nz-content>
       <form (ngSubmit)="login()">
         <input type="text" [(ngModel)]="userId" name="userId" placeholder="请输入用户ID" />
-        <button type="submit">登录</button>
+        <button  nz-button  type="submit">登录</button>
       </form>
-      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      <!-- <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
         {{ errorMessage }}
-      </div>
+      </div> -->
     </nz-content>
   <nz-layout>
