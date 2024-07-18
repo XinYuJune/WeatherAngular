@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { id_ID } from 'ng-zorro-antd/i18n';
 import { City } from 'src/app/models/city.model';
 import { MessageService } from 'src/app/services/message.service';
+import { OpenaiService } from 'src/app/services/openai.service';
 import { UserService } from 'src/app/services/user.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -19,11 +20,13 @@ export class CitySearchComponent implements OnInit {
   cityId?: number | null
   userName: string = '未登录'
   favoriteCities?: any[]
+  gptAnswer:string = ''
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
     private weatherService: WeatherService,
-    private message: MessageService) { }
+    private message: MessageService,
+    private openai : OpenaiService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -49,7 +52,6 @@ export class CitySearchComponent implements OnInit {
       error: (error) => {
         this.message.showError(`您的收藏城市加载失败了呜呜呜~~~`)
         console.error("无法找到该用户喜欢的城市:", error);
-
         // 根据后端返回的HTTP状态码或错误信息提供明确的提示
         if (error.status === 404) {
           this.message.showError(`您似乎没有收藏城市捏~~~`)
@@ -107,7 +109,23 @@ export class CitySearchComponent implements OnInit {
       console.error(`城市的ID传入为空！`)
     }
   }
-
+  //GPT查询天气
+  askGPT3(cityName:string){
+    if(cityName==null){
+      this.message.showError("输入的城市名为空!")
+      return
+    }
+    const promptInfo=this.cityName+"的今日天气如何?"
+    this.openai.askGPT3(promptInfo).subscribe({
+      next:gptResult=>{
+        console.log(gptResult)
+        this.gptAnswer=gptResult.choices.message.content
+      },
+      error:(error)=>{
+        console.error(error)
+      }
+    })
+  }
 
   //添加用户收藏的城市
   addToUserFavorites(userId: number, cityId: number): void {

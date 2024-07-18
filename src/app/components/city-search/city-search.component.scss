@@ -23,7 +23,18 @@
     color: white;
     text-align: center;
   }
-  
+
+  .rightSide{
+    float: right;
+     gap: 15px;
+     display: flex;
+    align-items: center ;    }
+    
+  /*GPT图标*/
+  .gptLogo{
+    font-size: 25px;
+  }
+
   .login-status {
     float: right;
     line-height: 64px;
@@ -38,3 +49,16 @@
     background: #1890ff;
     color: white;
   } 
+  #liStyle{
+   list-style: none; 
+  }
+
+
+  .count {
+    padding-left: 8px;
+    cursor: auto;
+  }
+  .ant-comment-rtl .count {
+    padding-right: 8px;
+    padding-left: 0;
+  }

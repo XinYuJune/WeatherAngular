@@ -1,10 +1,15 @@
 <nz-layout class="layout">
   <nz-header>
     <div class="logo">天气系统</div>
+    <div class="rightSide">
+      <span  nz-icon nzType="reddit" nzTheme="outline" class="gptLogo" nz-popover nzPopoverTitle="GPT查询（城市：{{cityName}}）" [nzPopoverContent]="gptWeatherTemplate" nzTrigger="click">
+      </span>
     <div nz-popover nzPopoverTitle="我的收藏（用户ID：{{userId}}）" [nzPopoverContent]="favoritesTemplate" nzTrigger="hover" class="login-status">
       {{ userId ? userName: '未登录' }}
       <!-- 这里需要实现获取用户名称的逻辑 -->
     </div>
+  </div>
+    
   </nz-header>
   <nz-content>
     <div class="weather-search-container">
@@ -48,7 +53,7 @@
 
 <ng-template #favoritesTemplate>
   <ul *ngIf="favoriteCities?.length; else noFavorites">
-    <li *ngFor="let city of favoriteCities">
+    <li *ngFor="let city of favoriteCities" id="liStyle">
       {{ city.name }}
       <button nz-button nzType="primary" nzDanger (click)="removeFromUserFavorites(userId!,city.id)">删除</button>
       <nz-divider></nz-divider>
@@ -58,6 +63,28 @@
   <ng-template #noFavorites>
     暂无收藏城市
   </ng-template>
+</ng-template>
+<ng-template #gptWeatherTemplate>
+  <div >
+    <nz-comment nzAuthor="GPT" *ngIf="gptAnswer; else noGPTResults">
+      <nz-avatar
+        nz-comment-avatar
+        nzIcon="user"
+        nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      ></nz-avatar>
+      <nz-comment-content>
+        <p>
+         {{gptAnswer}}
+        </p>
+      </nz-comment-content>
+    </nz-comment>
+  </div>
+</ng-template>
+<ng-template #noGPTResults>
+  <button nz-button nzType="primary" (click)="askGPT3(cityName)">
+    <span nz-icon nzType="search"></span>
+    使用GPT查找{{cityName}}
+  </button>
 </ng-template>
 
 <!-- 示例的错误消息容器

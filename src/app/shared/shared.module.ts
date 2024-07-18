@@ -9,7 +9,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageModule } from 'ng-zorro-antd/message';
-
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
 
 
 
@@ -27,7 +28,9 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
     NzFormModule,
     NzListModule,
     NzButtonModule,
-    NzMessageModule
+    NzMessageModule,
+    NzIconModule,
+    NzCommentModule
   ]
 })
 export class SharedModule { }
