@@ -68,6 +68,7 @@ export class CitySearchComponent implements OnInit {
     this.message.showLoading(`${cityName}的天气正在查询中捏~~~`)
     this.weatherService.getWeather(cityName).subscribe({
       next: cityData => {
+
         this.weather = cityData
         this.cityName = cityData.cityInfo.name
         this.cityId = cityData.cityInfo.id
